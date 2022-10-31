@@ -19,34 +19,11 @@ class MyRecyclerAdapter(val list: ArrayList<Product>): RecyclerView.Adapter<MyRe
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.binding.productNameTv.text = productList[position].productName
         holder.binding.descriptionProductTv.text = productList[position].productDescription
+        holder.binding.imageTv.setImageResource(productList[position].productImage)
     }
 
     override fun getItemCount(): Int {
         return productList.size
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun setList(list: List<Product>) {
-        productList = arrayListOf()
-        notifyDataSetChanged()
-    }
 }
-//class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
-//    private var userList = emptyList<UserModel>()
-//
-//    inner class ViewHolder(val binding: ItemUserLayoutBinding): RecyclerView.ViewHolder(binding.root)
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        return ViewHolder(
-//            ItemUserLayoutBinding.inflate(
-//                LayoutInflater.from(parent.context),
-//                parent,
-//                false
-//            )
-//        )
-//    }
-//
-//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.binding.tvFirstName.text = userList[position].firstName
-//        holder.binding.tvLastName.text  = userList[position].lastName
-//    }
